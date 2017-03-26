@@ -64,6 +64,7 @@
     }
 
     Alchemy.prototype.begin = function(userConf) {
+      Alchemy.prototype.instances.push(this);
       var conf;
       conf = this.setConf(userConf);
       switch (typeof this.conf.dataSource) {
@@ -74,7 +75,6 @@
           this.a.startGraph(this.a.conf.dataSource);
       }
       this.plugins.init();
-      Alchemy.prototype.instances.push(this);
       return this;
     };
 
